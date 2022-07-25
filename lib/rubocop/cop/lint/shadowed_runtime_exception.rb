@@ -10,13 +10,20 @@ module RuboCop
         MSG = 'Do not shadow rescued Exceptions.'
 
         def on_rescue(node)
+          require "json"
+          require 'pry'
+          require "awesome_print"
+
           return if rescue_modifier?(node)
 
           _body, *rescues, _else = *node
-          # require "json"; jj rescues
+
+          # jj rescues
+          # binding.pry
+
+          $all_elements = []
           rescued_groups = rescued_groups_for(rescues)
-          # require "json"; jj rescued_groups
-          # require 'pry'; binding.pry
+          ap $all_elements
 
           rescue_group_rescues_multiple_levels = rescued_groups.any? do |group|
             contains_multiple_levels_of_exceptions?(group)
@@ -68,7 +75,10 @@ module RuboCop
           rescued_exceptions = group.exceptions
           # require 'pry'; binding.pry
 
-          require "json"; jj rescued_exceptions
+          # require "json"; jj rescued_exceptions
+          # require "awesome_print"; ap rescued_exceptions
+
+          $all_elements << rescued_exceptions
 
 
           if rescued_exceptions.any?
