@@ -9,6 +9,15 @@ module RuboCop
 
         MSG = 'Do not shadow rescued Exceptions.'
 
+        def build_full_exception_name(node)
+          namespace  = node[0].each_path.map {|e| e.short_name}
+          class_name = node[0].short_name
+
+          namespace << class_name
+
+          namespace
+        end
+
         def on_rescue(node)
           require "json"
           require 'pry'
@@ -19,11 +28,18 @@ module RuboCop
           _body, *rescues, _else = *node
 
           # jj rescues
-          # binding.pry
 
           $all_elements = []
           rescued_groups = rescued_groups_for(rescues)
-          ap $all_elements
+
+          result = $all_elements.map do |node|
+            build_full_exception_name(node)
+          end
+
+          binding.pry
+          ap result
+
+          puts result.map {|e| e.join("::")}
 
           rescue_group_rescues_multiple_levels = rescued_groups.any? do |group|
             contains_multiple_levels_of_exceptions?(group)
