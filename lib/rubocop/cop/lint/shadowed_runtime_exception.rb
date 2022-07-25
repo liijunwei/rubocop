@@ -9,9 +9,10 @@ module RuboCop
 
         MSG = 'Do not shadow rescued Exceptions.'
 
-        def build_full_exception_name(node)
-          namespace  = node[0].each_path.map {|e| e.short_name}
-          class_name = node[0].short_name
+        # lib/rubocop/ast/node/const_node.rb:10
+        def build_full_exception_name(one_rescue)
+          namespace  = one_rescue[0].each_path.map {|e| e.short_name}
+          class_name = one_rescue[0].short_name
 
           namespace << class_name
 
@@ -36,8 +37,8 @@ module RuboCop
             build_full_exception_name(node)
           end
 
-          binding.pry
-          ap result
+          # binding.pry
+          # ap result
 
           puts result.map {|e| e.join("::")}
 
