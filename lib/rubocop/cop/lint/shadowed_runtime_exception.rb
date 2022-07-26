@@ -11,6 +11,7 @@ module RuboCop
 
         # lib/rubocop/ast/node/const_node.rb:10
         def build_full_exception_name(one_rescue)
+          # binding.pry
           namespace  = one_rescue[0].each_path.map {|e| e.short_name}
           class_name = one_rescue[0].short_name
 
@@ -37,7 +38,7 @@ module RuboCop
             build_full_exception_name(node)
           end
 
-          # binding.pry
+          binding.pry
           # ap result
 
           puts result.map {|e| e.join("::")}
