@@ -52,6 +52,7 @@ module RuboCop
         def on_rescue(node)
           return if rescue_modifier?(node)
 
+          require 'rest-client'
           _body, *rescues, _else = *node
           rescued_groups = rescued_groups_for(rescues)
 
