@@ -6,3 +6,6 @@ demo1:
 
 demo2:
 	exe/rubocop --only Lint/ShadowedRuntimeException spec/fixtures/shawdowed_runtime_exception2.rb
+
+demo3:
+	exe/rubocop --only Lint/ShadowedRuntimeException spec/fixtures/shawdowed_runtime_exception3.rb

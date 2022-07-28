@@ -38,7 +38,7 @@ module RuboCop
             build_full_exception_name(node)
           end
 
-          binding.pry
+          # binding.pry
           # ap result
 
           puts result.map {|e| e.join("::")}
