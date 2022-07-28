@@ -60,8 +60,11 @@ module RuboCop
           end
 
           return if !rescue_group_rescues_multiple_levels && sorted?(rescued_groups)
+          # return if !rescue_group_rescues_multiple_levels
+
 puts
-require 'pry'; binding.pry
+puts
+# binding.pry
           add_offense(offense_range(rescues))
         end
 
@@ -71,6 +74,7 @@ require 'pry'; binding.pry
           shadowing_rescue = find_shadowing_rescue(rescues)
           expression = shadowing_rescue.loc.expression
           range_between(expression.begin_pos, expression.end_pos)
+# binding.pry
         end
 
         def rescued_groups_for(rescues)
@@ -158,6 +162,7 @@ require 'pry'; binding.pry
           end
 
           rescued_groups.each_cons(2).with_index do |group_pair, i|
+  binding.pry
             return rescues[i] unless sorted?(group_pair)
           end
         end

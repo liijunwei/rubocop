@@ -16,6 +16,7 @@ gem 'rubocop-rspec', '~> 2.11.0'
 # https://github.com/codeclimate/test-reporter/issues/418
 gem 'simplecov', '~> 0.10', '< 0.18'
 gem 'stackprof', platform: :mri
+gem 'rest-client'
 gem 'test-queue'
 gem 'yard', '~> 0.9'
 
