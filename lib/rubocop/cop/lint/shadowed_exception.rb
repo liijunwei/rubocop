@@ -60,7 +60,8 @@ module RuboCop
           end
 
           return if !rescue_group_rescues_multiple_levels && sorted?(rescued_groups)
-
+puts
+require 'pry'; binding.pry
           add_offense(offense_range(rescues))
         end
 

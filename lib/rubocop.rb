@@ -4,6 +4,7 @@ require 'English'
 before_us = $LOADED_FEATURES.dup
 require 'rainbow'
 
+require 'pry'
 require 'set'
 require 'forwardable'
 require 'regexp_parser'
