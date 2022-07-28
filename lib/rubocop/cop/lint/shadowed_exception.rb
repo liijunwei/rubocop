@@ -117,6 +117,7 @@ puts
               begin
                 RuboCop::Util.silence_warnings do
                   # Avoid printing deprecation warnings about constants
+                  binding.pry
                   converted << Kernel.const_get(exception.source)
                 end
               rescue NameError
