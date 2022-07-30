@@ -14,7 +14,7 @@ if with_mem
   require 'memory_profiler'
   MemoryProfiler.start
 end
-StackProf.start
+StackProf.start(raw: true)
 start = Process.clock_gettime(Process::CLOCK_MONOTONIC)
 begin
   load "#{__dir__}/../exe/rubocop"
