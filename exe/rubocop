@@ -3,6 +3,10 @@
 
 $LOAD_PATH.unshift("#{__dir__}/../lib")
 
+require 'rubygems'
+require 'bundler/setup'
+Bundler.require
+
 require 'rubocop/server'
 server_cli = RuboCop::Server::CLI.new
 exit_status = server_cli.run
