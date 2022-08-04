@@ -57,6 +57,7 @@ module RuboCop
 
           rescue_group_rescues_multiple_levels = rescued_groups.any? do |group|
             contains_multiple_levels_of_exceptions?(group)
+# binding.pry
           end
 
           return if !rescue_group_rescues_multiple_levels && sorted?(rescued_groups)
@@ -77,6 +78,7 @@ module RuboCop
         end
 
         def contains_multiple_levels_of_exceptions?(group)
+# binding.pry
           # Always treat `Exception` as the highest level exception.
           return true if group.size > 1 && group.include?(Exception)
 
@@ -84,6 +86,7 @@ module RuboCop
         end
 
         def compare_exceptions(exception, other_exception)
+          # binding.pry
           if system_call_err?(exception) && system_call_err?(other_exception)
             # This condition logic is for special case.
             # System dependent error code depends on runtime environment.

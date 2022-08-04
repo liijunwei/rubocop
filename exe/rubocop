@@ -3,6 +3,7 @@
 
 $LOAD_PATH.unshift("#{__dir__}/../lib")
 
+require 'pry'
 require 'rubygems'
 require 'bundler/setup'
 Bundler.require
